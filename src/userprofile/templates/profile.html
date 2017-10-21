@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+
+    {% load staticfiles %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link href="{% static 'css/jumbotron.css' %}" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+  	{% include 'navbar.html' %}
+  	<div class='container'>
+
+  	{% block content %}
+<div class="container">
+ <div class="row">
+        <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+            <A href="edit" >Edit Profile</A>
+
+            <A href="edit" >Logout</A>
+            <br>
+            <p class=" text-info">May 05,2014,03:00 pm </p>
+        </div>
+<div class="col-md-10 ">
+<form class="form-horizontal">
+ {% csrf_token %}
+
+<fieldset>
+<legend>User profile form requirement</legend>
+<div class="form-group">
+     <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Full Name:</td>
+                        <td>{{user.username}}</td>
+                      </tr>
+                      <tr>
+                        <td>Date of Birth:</td>
+                        <td>{{profile.dob}}</td>
+                      </tr>
+                      <tr>
+                        <td>Father's Name</td>
+                        <td>{{profile.f_name}}</td>
+                      </tr>
+                       <tr>
+                        <td>Mother's Name</td>
+                        <td>{{profile.m_name}}</td>
+                      </tr>
+
+
+
+                        <tr>
+                        <td>Address</td>
+                        <td>{{profile.address}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td>{{user.email}}</td>
+                      </tr>
+                      <tr>
+                          <td>Phone Number</td>
+                        <td>{{profile.phone_no}}(Landline)<br>{{profile.secondary_no}}(Mobile)</td>
+                      </tr>
+
+
+                    </tbody>
+                  </table>
+
+</fieldset>
+</form>
+
+
+
+
+</div>
+<div class="col-md-2 hidden-xs">
+<img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail ">
+  </div>
+
+
+</div>
+   </div>
+
+  	{% endblock %}
+
+  	</div>
+
+
+
+
+
+
+
+
+  	{% include 'footer.html' %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{% static 'javascript/popper.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'javascript/ie10-viewport-bug-workaround.js' %}"></script>
+  </body>
+</html>
